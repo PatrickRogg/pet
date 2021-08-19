@@ -23,32 +23,6 @@ from pet.pvp import PVP, PVPS, FilledPattern
 from pet.utils import InputExample
 
 class CompanyClassificationPVP(PVP):
-    VERBALIZER = {
-        "1": ["Robotik"],
-        "2": ["Forschung", "Research"],
-        "3": ["Künstliche Intelligenz", "Artificial Intelligence"],
-        "4": ["Simulation"]
-    }
-
-    def get_parts(self, example: InputExample) -> FilledPattern:
-        text = self.shortenable(example.text_a)
-
-        if self.pattern_id == 0:
-            return [self.mask, ':', text], []
-        elif self.pattern_id == 1:
-            return [self.mask, 'News:', text], []
-        elif self.pattern_id == 2:
-            return ['[ Category:', self.mask, ']', text], []
-        elif self.pattern_id == 3:
-            return [self.mask, '-', text], []
-        else:
-            raise ValueError("No pattern implemented for id {}".format(self.pattern_id))
-
-    def verbalize(self, label) -> List[str]:
-        return CompanyClassificationPVP.VERBALIZER[label]
-
-
-class CompanyClassificationPVP(PVP):
     """
     Example for a pattern-verbalizer pair (PVP).
     """

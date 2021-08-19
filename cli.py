@@ -21,6 +21,7 @@ from typing import Tuple
 
 import torch
 
+from input_file_creator import create_input_files
 from pet.tasks import PROCESSORS, load_examples, UNLABELED_SET, TRAIN_SET, DEV_SET, TEST_SET, METRICS, DEFAULT_METRICS
 from pet.utils import eq_div
 from pet.wrapper import WRAPPER_TYPES, MODEL_CLASSES, SEQUENCE_CLASSIFIER_WRAPPER, WrapperConfig
@@ -89,6 +90,7 @@ def load_ipet_config(args) -> pet.IPetConfig:
 
 
 def main():
+    create_input_files()
     parser = argparse.ArgumentParser(description="Command line interface for PET/iPET")
 
     # Required parameters

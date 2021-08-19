@@ -69,7 +69,7 @@ class PVP(ABC):
         for label_idx, label in enumerate(label_list):
             verbalizers = self.verbalize(label)
             for verbalizer_idx, verbalizer in enumerate(verbalizers):
-                verbalizer_id = get_verbalization_ids(verbalizer, self.wrapper.tokenizer, force_single_token=True)
+                verbalizer_id = get_verbalization_ids(verbalizer, self.wrapper.tokenizer, force_single_token=False)
                 assert verbalizer_id != self.wrapper.tokenizer.unk_token_id, "verbalization was tokenized as <UNK>"
                 m2c_tensor[label_idx, verbalizer_idx] = verbalizer_id
         return m2c_tensor
@@ -148,7 +148,7 @@ class PVP(ABC):
                 assert mask_idx >= 0, 'sequence of input_ids must contain a mask token'
                 assert len(self.verbalize(example.label)) == 1, 'priming only supports one verbalization per label'
                 verbalizer = self.verbalize(example.label)[0]
-                verbalizer_id = get_verbalization_ids(verbalizer, self.wrapper.tokenizer, force_single_token=True)
+                verbalizer_id = get_verbalization_ids(verbalizer, self.wrapper.tokenizer, force_single_token=False)
                 input_ids[mask_idx] = verbalizer_id
             return input_ids, []
 

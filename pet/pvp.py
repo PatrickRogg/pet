@@ -632,7 +632,8 @@ class CompanyClassificationPVP(PVP):
         "1": ["Robotik"],
         "2": ["Forschung", "Research"],
         "3": ["Artificial Intelligence"],
-        "4": ["Simulation"]
+        "4": ["Simulation"],
+        "5": ["Other"]
     }
 
     def get_parts(self, example: InputExample) -> FilledPattern:

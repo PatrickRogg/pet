@@ -22,7 +22,7 @@ def load_data():
         cleaned_text = text.replace('\n', ' ').strip()
         if len(cleaned_text) == 0:
             continue
-        sentences = re.split('(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', text)[0:5]
+        sentences = re.split('(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', text)[0:50]
         company_to_sentences[company_name] = sentences
 
     return company_to_sentences

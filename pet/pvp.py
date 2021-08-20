@@ -69,7 +69,7 @@ class PVP(ABC):
         for label_idx, label in enumerate(label_list):
             verbalizers = self.verbalize(label)
             for verbalizer_idx, verbalizer in enumerate(verbalizers):
-                verbalizer_id = get_verbalization_ids(verbalizer, self.wrapper.tokenizer, force_single_token=False)
+                verbalizer_id = get_verbalization_ids(verbalizer, self.wrapper.tokenizer, force_single_token=True)
                 assert verbalizer_id != self.wrapper.tokenizer.unk_token_id, "verbalization was tokenized as <UNK>"
                 m2c_tensor[label_idx, verbalizer_idx] = verbalizer_id
         return m2c_tensor

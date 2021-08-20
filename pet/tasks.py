@@ -875,6 +875,7 @@ TASK_HELPERS = {
     "multirc": task_helpers.MultiRcTaskHelper,
     "copa": task_helpers.CopaTaskHelper,
     "record": task_helpers.RecordTaskHelper,
+    "company": task_helpers.MultiMaskTaskHelper
 }
 
 METRICS = {

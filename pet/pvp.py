@@ -148,7 +148,7 @@ class PVP(ABC):
                 assert mask_idx >= 0, 'sequence of input_ids must contain a mask token'
                 assert len(self.verbalize(example.label)) == 1, 'priming only supports one verbalization per label'
                 verbalizer = self.verbalize(example.label)[0]
-                verbalizer_id = get_verbalization_ids(verbalizer, self.wrapper.tokenizer, force_single_token=False)
+                verbalizer_id = get_verbalization_ids(verbalizer, self.wrapper.tokenizer, force_single_token=True)
                 input_ids[mask_idx] = verbalizer_id
             return input_ids, []
 
@@ -639,13 +639,13 @@ class CompanyClassificationPVP(PVP):
         text = self.shortenable(example.text_a)
 
         if self.pattern_id == 0:
-            return [self.mask, ':', text], []
+            return [self.mask, self.mask, self.mask, ':', text], []
         elif self.pattern_id == 1:
-            return [self.mask, 'News:', text], []
+            return [self.mask, self.mask, self.mask, 'Category:', text], []
         elif self.pattern_id == 2:
-            return ['[ Category:', self.mask, ']', text], []
+            return ['[ Category:', self.mask, self.mask, self.mask, ']', text], []
         elif self.pattern_id == 3:
-            return [self.mask, '-', text], []
+            return [self.mask, self.mask, self.mask, '-', text], []
         else:
             raise ValueError("No pattern implemented for id {}".format(self.pattern_id))
 

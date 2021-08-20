@@ -20,7 +20,7 @@ def create_input_files():
         writer = csv.writer(f)
         for company in company_to_sentences:
             for sentence in company_to_sentences[company]:
-                writer.writerow(['1', sentence, company])
+                writer.writerow(['', sentence, company])
 
     # with open(FOLDER + TRAIN_FILE_NAME, 'w', encoding='UTF8', newline='') as f:
     #     writer = csv.writer(f)

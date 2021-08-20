@@ -24,28 +24,28 @@ def create_input_files():
         writer.writerow(header)
         for company in company_to_sentences:
             for sentence in company_to_sentences[company]:
-                writer.writerow(['', sentence, company])
+                writer.writerow(['Robotik', sentence, company])
 
     with open(FOLDER + TRAIN_FILE_NAME, 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(header)
         for company in company_to_sentences:
             for sentence in company_to_sentences[company]:
-                writer.writerow(['', sentence, company])
+                writer.writerow(['Robotik', sentence, company])
 
     with open(FOLDER + DEV_FILE_NAME, 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(header)
         for company in company_to_sentences:
             for sentence in company_to_sentences[company]:
-                writer.writerow(['', sentence, company])
+                writer.writerow(['Robotik', sentence, company])
 
     with open(FOLDER + TEST_FILE_NAME, 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(header)
         for company in company_to_sentences:
             for sentence in company_to_sentences[company]:
-                writer.writerow(['', sentence, company])
+                writer.writerow(['Robotik', sentence, company])
 
 
 create_input_files()

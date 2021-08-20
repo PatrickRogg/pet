@@ -783,7 +783,7 @@ class CompanyDataProcessor(DataProcessor):
     UNLABELED_FILE_NAME = "unlabeled.csv"
 
     # Set this to a list of all labels in the train + test data
-    LABELS = ["1", "2", "3", "4"]
+    LABELS = ["1", "2", "3", "4", "5"]
 
     # Set this to the column of the train/test csv files containing the input's text a
     TEXT_A_COLUMN = 1

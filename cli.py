@@ -90,7 +90,6 @@ def load_ipet_config(args) -> pet.IPetConfig:
 
 
 def main():
-    create_input_files()
     parser = argparse.ArgumentParser(description="Command line interface for PET/iPET")
 
     # Required parameters

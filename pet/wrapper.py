@@ -429,7 +429,7 @@ class TransformerModelWrapper:
             features.append(input_features)
             if ex_index < 5:
                 logger.info(f'--- Example {ex_index} ---')
-                # logger.info(input_features.pretty_print(self.tokenizer))
+                logger.info(input_features.pretty_print(self.tokenizer))
         return features
 
     def _mask_tokens(self, input_ids):
